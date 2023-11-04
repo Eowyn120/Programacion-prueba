@@ -141,6 +141,7 @@ input::placeholder {
 }
 
 
+
 form {
   display: flex;
   flex-direction: column;
@@ -184,35 +185,31 @@ button:hover {
     
     
         <form action="/aggprd" method="post" class="form">
-            <label>Ingrese el nombre</label>
             <div class="form-control">
                 <input  type="text" name="nombre" id="nombre" placeholder="Ingrese el nombre del producto" required maxlength="25" minlength="3"/>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
-            <label>Ingrese el codigo</label>
             <div class="form-control">
                 <input type="number" name="codigo" id="codigo" placeholder="Ingrese el codigo del producto" required/>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
-            <label>Ingrese el precio</label>
             <div class="form-control">
                 <input input type="number" name="precio" id="precio" placeholder="Ingrese el precio del producto" required/>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
-            <label>Ingrese para cuanto jugadores es</label>
             <div class="form-control">
                 <input type="number" name="jugadores" id="jugadores" placeholder="Ingrese para cuantos jugadores es el producto" required/>
                 <i class="fas fa-check-circle"></i>
                 <i class="fas fa-exclamation-circle"></i>
                 <small>Error message</small>
             </div>
-            <label>Seleccione la Categoria</label>
+            <label>Elija a que categoria pertenece</label>
             <select name="categoria" id="categoria">
                 <option value="" >--Seleccione--</option>
                 <% if (categorias) { %>
@@ -226,10 +223,7 @@ button:hover {
                             <option value="">No existen categorias en el sistema</option>
                     <% }   %>
             </select>
-            <label>Ingrese la descripcion</label>
-            <div class="form-control">
-                <input type="text" name="descripcion" id="descripcion" placeholder="Ingrese la descripcion del producto" maxlength="60" minlength="10">
-            </div>
+        <input type="textarea" name="descripcion" id="descripcion" placeholder="Ingrese la descripcion del producto" maxlength="60" minlength="10">
             <button type="submit" class="btn btn-primary">Subir Producto</button>
         </form>
     </div>
