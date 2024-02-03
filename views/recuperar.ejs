@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Agregar Categoria</title>
+	<title>Mark's Quest</title>
 	    <!-- 
     - favicon
   -->
@@ -193,29 +193,29 @@
 	</Style>
 
 
-</head>
 
+</head>
 <body>
 
-	<div class="container">
+    <div class="container">
 		<div>
 			<a class="nav-link return-button" href="/logout">Salir.</a>
 		</div>
 
-
 		<div class="header">
-			<h2>Agregar Categoria</h2>
+			<h2>Pregunta de Seguridad</h2>
 		</div>
 
 
-		<form action="/aggctg" method="post" class="form">
-
-			<input type="text" name="nombre" id="descripcion" id="nombre"
-				placeholder="Ingrese el nombre de la categoria" required maxlength="25" minlength="4">
-			<button type="submit" class="btn btn-primary">Subir Categoria</button>
-		</form>
-	</div>
+	<form  action="/resclave" method="post" class="form">
+    <h4>Ingrese su pregunta de seguridad:</h4><hr>
+	<div style="margin-top: 10px; margin-bottom: 10px;"><input type="text" name="pregunta" id="pregunta" placeholder="Pregunta de seguridad" required maxlength="16" minlength="4" ></div>
+	<h4>Ingrese su respuesta de seguridad:</h4><hr>
+	<div style="margin-top: 10px; margin-bottom: 10px;"><input type="text" name="respuesta" id="respuesta" placeholder="Respuesta de seguridad" required maxlength="8" minlength="4"></div>
+	<hr>
+	<div style="margin-top: 10px; margin-bottom: 10px;"><button type="submit" class="btn btn-primary">Buscar Correo</button></div>
+	</form>
+</div>
 
 </body>
-
 </html>

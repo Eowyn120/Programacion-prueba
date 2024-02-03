@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mark's Quest</title>
+    <title>Productos Comprados</title>
 
     <link rel="stylesheet" href="/stylesheets/admin.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -57,46 +57,20 @@
             <div class="container1">
 
                 <h1 class="h1 logo">
-                    <a href="/report">Mark's Quest<span>.</span></a>
+                    <a href="/clientes">Mark's Quest<span>.</span></a>
                 </h1>
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+                            
+                                <li class="nav-item">
+                                    <a class="nav-link btn btn-dark" href="/loginclientes">Iniciar Sesion</a>
+                                    <a class="nav-link btn btn-dark" href="/logout">Salir.</a>
+                                </li>
+                            
 
-                <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
-                    <div class="container-fluid">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                            <ul class="navbar-nav nav justify-content-center">
-                                <li class="nav-item">
-                                    <a class="nav-link btn btn-dark" href="/report">Home</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link  btn btn-dark" aria-current="page"
-                                        href="/categorias">Categorias</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn btn-dark" href="/productos">Productos</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn btn-dark" href="/imagenes">Imagenes</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn btn-dark" href="/tablaclientes">Clientes</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link btn btn-dark" href="/tablacompras">Facturas</a>
-                                </li>
-                                <li>
-                                    <a class="nav-link return-button" href="/logout">Salir.</a>
-                                </li>
                             </ul>
-
                         </div>
-                    </div>
+                
                 </nav>
-
             </div>
         </header>
     </div>
@@ -105,6 +79,9 @@
         <article class="container1">
             <div class="container">
                 <div class="table-responsive">
+                    <div class="titulo">
+                        <h1>Productos Comprados</h1>
+                    </div>
                     <table border="2" class="table table-hover table-dark table-striped">
                         <!-- <caption><h1>Reporte General</h1></caption> -->
                         <tr>
@@ -112,34 +89,25 @@
                                 <p>N°</p>
                             </th>
                             <th>
-                                <p>Codigo</p>
-                            </th>
-                            <th>
-                                <p>Nombre</p>
-                            </th>
-                            <th>
-                                <p>Precio</p>
-                            </th>
-                            <th>
-                                <p>Marca</p>
-                            </th>
-                            <th>
-                                <p>Jugadores</p>
-                            </th>
-                            <th>
-                                <p>Descripcion</p>
-                            </th>
-                            <th>
-                                <p>Categoria</p>
-                            </th>
-                            <th>
                                 <p>Imagen</p>
                             </th>
                             <th>
-                                <p>Destacado</p>
+                                <p>Producto</p>
                             </th>
                             <th>
-                                <p>Calificacion</p>
+                                <p>Cantidad</p>
+                            </th>
+                            <th>
+                                <p>Total Pagado</p>
+                            </th>
+                            <th>
+                                <p>Moneda</p>
+                            </th>
+                            <th>
+                                <p>Fecha</p>
+                            </th>
+                            <th>
+                                <p>Accion</p>
                             </th>
                         </tr>
                         <tr>
@@ -150,43 +118,35 @@
                                 <%= (i + 1) %>
                             </td>
                             <td>
-                                <%= datos[i].codigo %>
+                                <img class="imagen-producto" src="<%= datos[i].url %>">
                             </td>
                             <td>
-                                <%= datos[i].productoNombre %>
+                                <%= datos[i].nombre %>
                             </td>
                             <td>
-                                <%= datos[i].precio %>
+                                <%= datos[i].cantidad %>
                             </td>
                             <td>
-                                <%= datos[i].marca %>
+                                <%= datos[i].total_pagado %>
                             </td>
                             <td>
-                                <%= datos[i].jugadores %>
+                                <%= datos[i].nomenclatura %>
                             </td>
                             <td>
-                                <%= datos[i].descripcion %>
+                                <%= datos[i].fecha %>
                             </td>
                             <td>
-                                <%= datos[i].categoriaNombre %>
-                            </td>
-                            <td><img class="imagen-producto" src="<%= datos[i].url %>"></td>
-                            <td>
-                                <%= datos[i].destacado %>
-                            </td>
-                            <td>
-                                <% if (datos[i].promedio > 0) {%>
-                                    <%= datos[i].promedio %>
-                                <% } else{%>
-                                    <p>Sin Calificar</p>
-                                <% }%>
+                                <div class="input-group">
+                                    <a href="/calificar/<%= datos[i].id %>" type="button"
+                                        class="btn btn-dark">Calificar</a>
+                                </div>
                             </td>
                         </tr>
                         <% } %>
                             <% } else { %>
                                 <tr>
                                     <th>
-                                        <p>No hay productos en el sistema</p>
+                                        <p>Usted no ha comprado productos</p>
                                     </th>
                                 </tr>
                                 <% } %>
